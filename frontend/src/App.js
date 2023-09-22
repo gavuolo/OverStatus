@@ -4,6 +4,7 @@ import { UserProvider } from "./context/useContext";
 import styled from "styled-components";
 import { theme } from "./assets/Colors";
 import HomePage from "./pages/HomePage/HomePage";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -22,11 +23,13 @@ function App() {
   );
 }
 const Content = styled.div`
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw; */
+  height: 100vmax;
   background-color: ${theme.gray};
   display: flex;
   justify-content: center;
+  flex-direction: column;
   /* align-items: center; */
+  
 `;
 export default App;

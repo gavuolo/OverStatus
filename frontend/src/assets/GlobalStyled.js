@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { theme } from "./Colors";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -61,6 +62,20 @@ h1, h2{
 	font-family:'BigNoodleOblique';
 	font-size: 35px;
 }
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: ${theme.primary};        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: ${theme.orange};    /* color of the scroll thumb */
+  border: 4px solid ${theme.primary};
+  
+}
+
 `;
 
 export default GlobalStyle;

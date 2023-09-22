@@ -63,7 +63,10 @@ const TopBar = styled.div`
   background-color: ${theme.primary};
   display: flex;
   justify-content: center;
-
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
   /* position: fixed;
   top: 20px;
   bottom: 0;

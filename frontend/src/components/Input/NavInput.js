@@ -30,7 +30,6 @@ export function NavInput({
   );
 }
 const FormBox = styled.div`
-  /* padding: 15px 0 0; */
   margin: 10px 20px 10px 0px;
   width: ${(props) => props.width};
   display: flex;
