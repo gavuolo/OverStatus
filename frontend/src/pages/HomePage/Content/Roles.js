@@ -1,15 +1,17 @@
 import styled from "styled-components";
 import { ContentBox, Description } from "./Styles";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import React from "react";
 
 import { ThreeDots } from "react-loader-spinner";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { theme } from "../../../assets/Colors";
 import { getRoles } from "../../../services/overFastApi/rolesService";
+import UserContext, { UserProvider } from "../../../context/useContext";
 
 export default function Roles() {
   const [roles, setRoles] = useState(undefined);
+  // const { roles, setRoles } = useContext(UserContext)
   const navigate = useNavigate();
   async function apiResponse() {
     try {
@@ -23,7 +25,7 @@ export default function Roles() {
   useEffect(() => {
     apiResponse();
   }, []);
-  function selectRole(key){
+  function selectRole(key) {
     navigate(`/role/${key}`);
   }
   function RoleMap() {
@@ -87,7 +89,7 @@ const RoleIcon = styled.div`
   img {
     width: 40%;
   }
-    transition: transform 0.2s;
+  transition: transform 0.2s;
   &:hover {
     transform: scale(1.2);
     z-index: 0;
@@ -100,4 +102,4 @@ const RoleMapBox = styled.div`
   width: 60%;
   height: auto;
   justify-content: space-around;
-`
+`;

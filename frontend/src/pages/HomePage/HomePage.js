@@ -44,10 +44,10 @@ const Apresentation = styled.div`
     font-size: 50px;
   }
 `;
-
 const Content = styled.div`
   width: 100%;
   height: 100%;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;

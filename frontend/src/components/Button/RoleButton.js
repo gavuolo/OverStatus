@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../assets/Colors";
 
-export function NavButton({ text, onClick, type, disabled, height, width, bgcolor, color }) {
+export function RoleButton({ text, onClick, type, disabled, height, width, bgcolor, color, src, alt }) {
   return (
     <>
       <ButtonBox
@@ -14,6 +14,7 @@ export function NavButton({ text, onClick, type, disabled, height, width, bgcolo
         bgcolor={bgcolor}
         color={color}
       >
+        <img src={src} alt={alt} />
         <h1>{text}</h1>
       </ButtonBox>
     </>
@@ -21,24 +22,29 @@ export function NavButton({ text, onClick, type, disabled, height, width, bgcolo
 }
 
 const ButtonBox = styled.div`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
+  width: 20%;
+  height: 90%;
   border-radius: 5px;
-  
-  background-color: ${theme.primary};
-    color: ${theme.white};
+  background-color: ${(props) => props.bgcolor ? `${theme.green}` : `${theme.primary}`};
   display: flex;
+  color: ${theme.white};
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45);
+  gap: 10%;
   cursor: pointer;
   &&:hover {
-    background-color: ${(props) => props.bgcolor};
-    color: ${theme.black}
+    background-color: ${theme.green};
   }
   h1 {
     color: ${(props) => props.color};
     font-size: 20px;
+  }
+  img{
+    width: 20px;
+    height: 20px
   }
 
   @media (max-width: 950px) {
