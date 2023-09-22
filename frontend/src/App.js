@@ -22,9 +22,9 @@ function App() {
   );
 }
 const Content = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: ${theme.white};
+  width: 100vw;
+  height: 100vh;
+  background-color: ${theme.gray};
   display: flex;
   justify-content: center;
   /* align-items: center; */
