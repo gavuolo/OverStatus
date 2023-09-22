@@ -16,31 +16,31 @@ export default function NavBar() {
               text="MODO DE JOGO"
               width="auto"
               height="40%"
-              bgcolor={theme.gray}
+              bgcolor={theme.primary}
             />
             <NavButton
               text="HERÓIS"
               width="auto"
               height="40%"
-              bgcolor={theme.gray}
+              bgcolor={theme.primary}
             />
             <NavButton
               text="MAPAS"
               width="auto"
               height="40%"
-              bgcolor={theme.gray}
+              bgcolor={theme.primary}
             />
             <NavButton
               text="JOGADORES"
               width="auto"
               height="40%"
-              bgcolor={theme.gray}
+              bgcolor={theme.primary}
             />
             <NavButton
               text="GUIAS"
               width="auto"
               height="40%"
-              bgcolor={theme.gray}
+              bgcolor={theme.primary}
             />
           </ButtonBox>
           <NavInput />
@@ -49,6 +49,7 @@ export default function NavBar() {
               text="LOGIN"
               width="90%"
               height="40%"
+              color={theme.black}
               bgcolor={theme.orange}
             />
           </LoginBox>

@@ -25,15 +25,15 @@ const ButtonBox = styled.div`
   height: ${(props) => props.height};
   border-radius: 5px;
   
-  background-color: ${theme.primary};
-    color: ${theme.white};
+  background-color: ${(props) => props.bgcolor};
+  color: ${theme.white};
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
   cursor: pointer;
   &&:hover {
-    background-color: ${(props) => props.bgcolor};
+    background-color: ${theme.gray};
     color: ${theme.black}
   }
   h1 {
