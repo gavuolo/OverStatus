@@ -6,6 +6,7 @@ import { theme } from "./assets/Colors";
 import HomePage from "./pages/HomePage/HomePage";
 import Footer from "./components/Footer/Footer";
 import RolePage from "./pages/RolePage/RolePage";
+import HeroPage from "./pages/HeroPage/HeroPage";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/role/:idRole" element={<RolePage />} />
-            {/* <Route path="/heroi/:keyHero" element={<HeroPage />} /> */}
+            <Route path="/heroi/:keyHero" element={<HeroPage />} />
           </Routes>
         </UserProvider>
       </Content>

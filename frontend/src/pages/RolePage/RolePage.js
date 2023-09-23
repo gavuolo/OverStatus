@@ -15,7 +15,7 @@ import {
 import { getHeroes } from "../../services/overFastApi/heroesService";
 import { useContext, useEffect, useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate, useParams } from "react-router-dom";
 import { getRoles } from "../../services/overFastApi/rolesService";
 import Footer from "../../components/Footer/Footer";
 import { NavButton } from "../../components/Button/NavButton";
@@ -40,12 +40,13 @@ export default function RolePage() {
       icon: "https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt66cec9a29cd34e3d/62ea8957c87999116c02c674/Support.svg",
     },
   ]);
-
   const [roleName, setRoleName] = useState(undefined);
   const [roleDescription, setRoleDescription] = useState(undefined);
   const [icon, setIcon] = useState(undefined);
   const navigate = useNavigate();
+  const location = useLocation();
   const { idRole } = useParams();
+  
   async function apiResponse() {
     try {
       const response = await getHeroes(idRole);
@@ -62,9 +63,12 @@ export default function RolePage() {
   }
   useEffect(() => {
     apiResponse();
-  }, []);
+  }, [location.key]);
   function selectHero(key) {
     navigate(`/heroi/${key}`);
+  }
+  function selectRole(key) {
+    navigate(`/role/${key}`);
   }
   function HeroesMap() {
     return (
@@ -121,6 +125,7 @@ export default function RolePage() {
             bgcolor={roleName === "Tanque"}
             src={roles[0].icon}
             alt={roles[0].name}
+            onClick={() => selectRole('tank')}
           />
           <RoleButton
             text="Dano"
@@ -129,6 +134,7 @@ export default function RolePage() {
             bgcolor={roleName === "Dano"}
             src={roles[1].icon}
             alt={roles[1].name}
+            onClick={() => selectRole('damage')}
           />
           <RoleButton
             text="Suporte"
@@ -137,6 +143,7 @@ export default function RolePage() {
             bgcolor={roleName === "Suporte"}
             src={roles[2].icon}
             alt={roles[2].name}
+            onClick={() => selectRole('support')}
           />
         </ButtonBox>
       </TopBox>

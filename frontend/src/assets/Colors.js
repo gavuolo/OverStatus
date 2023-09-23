@@ -7,3 +7,9 @@ export const theme = {
     orange: '#FF9900',
     white: '#FFFFFF',
 }
+
+export const hitpoints  ={
+    armor: '#F78317',
+    health: '#FFFFFF',
+    shields: '#02DBFF',
+}

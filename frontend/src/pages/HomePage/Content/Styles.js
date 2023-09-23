@@ -24,7 +24,7 @@ export const Description = styled.div`
   justify-content: center;
   align-items: center;
   width: 200px;
-  color: ${theme.black};
+  color: ${theme.white};
   div:nth-child(2) {
     width: 20%;
     height: 3px;

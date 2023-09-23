@@ -13,7 +13,7 @@ export default function Register() {
         <Strip>
             <h1>Comente e ajuda quem precisa</h1>
             <NavButton 
-             text="MODO DE JOGO"
+             text="Registrar"
              width="auto"
              height="20%"
              bgcolor={theme.orange}

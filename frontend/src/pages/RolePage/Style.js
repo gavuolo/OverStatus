@@ -53,10 +53,10 @@ export const HeroesBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-flow: row wrap;
-  &:last-child {
-    justify-content: flex-start;
-  } 
+  flex-flow: row wrap;  
+  /* &&:last-child {
+    flex-flow: initial;
+  }  */
 `;
 export const HeroCardWrapper = styled.div`
   transition: transform 0.2s;
