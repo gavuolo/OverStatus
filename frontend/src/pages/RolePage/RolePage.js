@@ -46,7 +46,6 @@ export default function RolePage() {
   const navigate = useNavigate();
   const location = useLocation();
   const { idRole } = useParams();
-  
   async function apiResponse() {
     try {
       const response = await getHeroes(idRole);

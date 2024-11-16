@@ -61,7 +61,7 @@ export default function NavBar() {
 const TopBar = styled.div`
   width: 100vw;
   height: 80px;
-  background-color: ${theme.primary};
+  background-color: ${theme.blue};
   display: flex;
   justify-content: center;
   position: fixed;
@@ -103,11 +103,14 @@ const ButtonBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background-color: red;
 `;
 const LoginBox = styled.div`
   width: 120px;
+  width: 7%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: red;
 `;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../assets/Colors";
+import { theme, fonts } from "../../assets/Colors";
 
 export function NavButton({ text, onClick, type, disabled, height, width, bgcolor, color }) {
   return (
@@ -24,7 +24,6 @@ const ButtonBox = styled.div`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   border-radius: 5px;
-  
   background-color: ${(props) => props.bgcolor};
   color: ${theme.white};
   display: flex;
@@ -38,7 +37,7 @@ const ButtonBox = styled.div`
   }
   h1 {
     color: ${(props) => props.color};
-    font-size: 20px;
+    font-size: ${fonts.butons};
   }
 
   @media (max-width: 950px) {

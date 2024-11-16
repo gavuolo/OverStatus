@@ -6,6 +6,11 @@ export const theme = {
     blue: '#0099CC',
     orange: '#FF9900',
     white: '#FFFFFF',
+    input: '#a7a7a7'
+}
+
+export const fonts ={
+    butons: '20px'
 }
 
 export const hitpoints  ={

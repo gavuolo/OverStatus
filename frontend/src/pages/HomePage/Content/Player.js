@@ -3,8 +3,11 @@ import { NavInput } from "../../../components/Input/NavInput";
 import { ContentBox, Description } from "./Styles";
 import { IoSearchSharp } from "react-icons/io5";
 import { theme } from "../../../assets/Colors";
+import { useState } from "react";
 
 export default function Players() {
+  const [isFocused, setIsFocused] = useState(false);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
   return (
     <>
       <ContentBox bgcolor={theme.primary} color={theme.white}>
@@ -12,10 +15,18 @@ export default function Players() {
           <h1>JOGADORES</h1>
           <div></div>
         </Description>
-        <SearchBox>
-          <NavInput placeholder={"Nome do jogaddor"} width={"100%"} />
-          <IconSearch>
-            <div></div>
+        <SearchBox isFocused={isFocused} isSearchFocused={isSearchFocused}>
+          <NavInput
+            placeholder={"Nome do jogaddor"}
+            width={"100%"}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+          />
+          <IconSearch
+            isFocused={isFocused}
+            onMouseEnter={() => setIsSearchFocused(true)}
+            onMouseLeave={() => setIsSearchFocused(false)}
+          >
             <IoSearchSharp />
           </IconSearch>
         </SearchBox>
@@ -25,56 +36,35 @@ export default function Players() {
 }
 
 const IconSearch = styled.div`
-  width: 6%;
-  
+  width: 8%;
   display: flex;
   align-items: center;
   justify-content: center;
   svg {
-    width: 100%;
-    height: 100%;
+    font-size: 280%;
+    color: ${theme.gray};
     cursor: pointer;
   }
-
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  position: relative;
-
   &&:hover {
-    transition: background-color 0.5s ease;
+    transition: background-color 0.4s ease;
+    background-color: ${theme.orange};
     border-radius: 10px;
-    background-color: ${theme.primary};
-    div:nth-child(1) {
-      background-color: transparent;
-      transition: background-color 0.1s ease;
+    svg {
+      color: ${theme.black};
+      transition: color 0.4s ease;
     }
-  }
-
-  /* position: absolute;
-  right: 0;
-  left: 1520px;
-  display: flex;
-  align-items: center;
-  font-size: 30px;
-  color: black; */
-
-  div:nth-child(1) {
-    width: 6%;
-    height: 70%;
-    background-color: #d9d9d9;
-    border-radius: 50px;
-    margin: 0 1px 0 0;
   }
 `;
 const SearchBox = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 55%;
   height: auto;
-  /* height: 45px; */
-  /* background-color: #aeaeae; */
-  background-color: #a7a7a7;
-  background-color: red;
+  background-color: ${theme.input};
   border-radius: 10px;
+  border: 2px solid
+    ${({ isFocused, isSearchFocused }) =>
+      isFocused || isSearchFocused ? theme.orange : "transparent"};
+  transition: border-color 0.4s ease;
 `;

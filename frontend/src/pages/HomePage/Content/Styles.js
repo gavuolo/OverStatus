@@ -4,6 +4,7 @@ import { theme } from "../../../assets/Colors";
 export const ContentBox = styled.div`
   width: 85vw;
   height: 250px;
+  /* height: 26vh; */
   background-color: ${(props) => props.bgcolor};
   display: flex;
   align-items: center;
@@ -13,7 +14,6 @@ export const ContentBox = styled.div`
   -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45);
   h1 {
-   
     color: ${(props) => props.color};
   }
 `;
@@ -25,6 +25,7 @@ export const Description = styled.div`
   align-items: center;
   width: 200px;
   color: ${theme.white};
+  background-color: red;
   div:nth-child(2) {
     width: 20%;
     height: 3px;

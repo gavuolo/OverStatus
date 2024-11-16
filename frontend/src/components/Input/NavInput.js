@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { theme } from "../../assets/Colors";
 
 export function NavInput({
   placeholder,
@@ -11,6 +12,8 @@ export function NavInput({
   width,
   required,
   readOnly,
+  onBlur, //AQUI
+  onFocus, //AQUI
 }) {
   return (
     <>
@@ -24,20 +27,19 @@ export function NavInput({
           onChange={onChange}
           required={required}
           readOnly={readOnly}
+          onFocus={onFocus} //AQUI
+          onBlur={onBlur} //AQUI
         />
       </FormBox>
     </>
   );
 }
 const FormBox = styled.div`
-  /* margin: 10px 20px 10px 0px; */
   width: ${(props) => props.width};
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   text-align: start;
-
-
   p {
     width: auto;
     text-align: start;
@@ -52,10 +54,12 @@ const InputBox = styled.input`
   border: none;
   padding: 4px 17px 0;
   font-size: 20px;
-  background-color: #a7a7a7;
+  background-color: ${theme.input};
   &&:focus {
-    border: 0px solid;
+    /* border: 0px solid; */
     box-shadow: 0 0 0 0;
     outline: 0;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5)
   }
 `;
