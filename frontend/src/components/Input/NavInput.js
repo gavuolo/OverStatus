@@ -30,11 +30,14 @@ export function NavInput({
   );
 }
 const FormBox = styled.div`
-  margin: 10px 20px 10px 0px;
+  /* margin: 10px 20px 10px 0px; */
   width: ${(props) => props.width};
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   text-align: start;
+
+
   p {
     width: auto;
     text-align: start;
@@ -43,14 +46,13 @@ const FormBox = styled.div`
   }
 `;
 const InputBox = styled.input`
-  width: auto;
+  width: 100%;
   height: 38px;
   border-radius: 10px;
   border: none;
   padding: 4px 17px 0;
   font-size: 20px;
-  background-color: rgba(217, 217, 217, 0.7);
-
+  background-color: #a7a7a7;
   &&:focus {
     border: 0px solid;
     box-shadow: 0 0 0 0;

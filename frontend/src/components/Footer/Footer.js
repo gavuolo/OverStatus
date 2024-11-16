@@ -9,6 +9,10 @@ export default function Footer() {
   return (
     <>
       <FooterBar>
+        <MenuFooter>
+        <Typography>overstatus</Typography>
+        <Line />
+        </MenuFooter>
       </FooterBar>
     </>
   );
@@ -30,3 +34,25 @@ const FooterBar = styled.div`
     overflow-y: hidden;
   }
 `;
+const MenuFooter = styled.div`
+  background-color: yellow;
+  width: 85vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Typography = styled.p`
+  font-size: 30px;
+  color: ${theme.blue};
+  font-family: "Terminator";
+`;
+const Line = styled.div`
+width: 100%;
+height: 100%;
+background-color: red;
+`
+const FirstColumn = styled.div`
+`
