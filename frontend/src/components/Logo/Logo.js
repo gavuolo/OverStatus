@@ -25,6 +25,7 @@ const LogoBox = styled.div`
   justify-content: center;
   text-align: center;
   cursor: pointer;
+  /* background-color: green; */
 `;
 const Typography = styled.p`
   font-size: 30px;

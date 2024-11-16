@@ -2,7 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { theme, fonts } from "../../assets/Colors";
 
-export function NavButton({ text, onClick, type, disabled, height, width, bgcolor, color }) {
+export function NavButton({
+  text,
+  onClick,
+  type,
+  disabled,
+  height,
+  width,
+  bgcolor,
+  color,
+}) {
   return (
     <>
       <ButtonBox
@@ -31,21 +40,24 @@ const ButtonBox = styled.div`
   justify-content: center;
   padding: 20px;
   cursor: pointer;
+  overflow: hidden;
   &&:hover {
     background-color: ${theme.gray};
-    color: ${theme.black}
+    color: ${theme.black};
   }
   h1 {
     color: ${(props) => props.color};
     font-size: ${fonts.butons};
+    text-align: center;
+    white-space: nowrap; //nao vai quebrar em outras linhas
   }
 
   @media (max-width: 950px) {
     width: auto;
     margin: 0 1vw 0 1vw;
     text-align: center;
-    h1{
-        width: 15vw;
-      }
+    h1 {
+      width: 15vw;
+    }
   }
 `;

@@ -4,8 +4,11 @@ import { NavButton } from "../Button/NavButton";
 import { NavInput } from "../Input/NavInput";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { theme } from "../../assets/Colors";
+import {} from "react-icons/io5";
+import { useState } from "react";
 
 export default function NavBar() {
+  const [isFocused, setIsFocused] = useState(false);
   return (
     <>
       <TopBar>
@@ -43,12 +46,19 @@ export default function NavBar() {
               bgcolor={theme.primary}
             />
           </ButtonBox>
-          <NavInput />
+          <NavInput
+            placeholder={"BUSCA"}
+            type={"text"}
+            width={"auto"}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            isFocused={isFocused}
+          />
           <LoginBox>
             <NavButton
-              text="LOGIN"
-              width="90%"
-              height="40%"
+              text={"LOGIN"}
+              width={"90%"}
+              height={"40%"}
               color={theme.black}
               bgcolor={theme.orange}
             />
@@ -61,28 +71,16 @@ export default function NavBar() {
 const TopBar = styled.div`
   width: 100vw;
   height: 80px;
-  background-color: ${theme.blue};
+  background-color: ${theme.primary};
   display: flex;
   justify-content: center;
   position: fixed;
   top: 0;
   bottom: 0;
   z-index: 2;
-  /* position: fixed;
-  top: 20px;
-  bottom: 0;
-  width: 95vw;
-  height: 70px;
-  background-color: ${theme.white};
-  z-index: 1;
-  -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.45);
-  -moz-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.45);
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.45);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around; */
-
+  -webkit-box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.75);
   @media (max-width: 950px) {
     padding: 0 1vw 0 60vw;
     height: 70px;
@@ -98,19 +96,18 @@ const CentralizeBar = styled.div`
   justify-content: space-between;
 `;
 const ButtonBox = styled.div`
-  width: 40%;
+  width: 50%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: red;
+  gap: 2px;
+  padding: 0 0.2em 0 0.2em;
 `;
 const LoginBox = styled.div`
   width: 120px;
-  width: 7%;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: red;
+  justify-content: flex-end;
 `;

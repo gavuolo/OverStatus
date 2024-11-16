@@ -12,8 +12,9 @@ export function NavInput({
   width,
   required,
   readOnly,
-  onBlur, //AQUI
-  onFocus, //AQUI
+  onBlur, 
+  onFocus,
+  isFocused
 }) {
   return (
     <>
@@ -27,8 +28,9 @@ export function NavInput({
           onChange={onChange}
           required={required}
           readOnly={readOnly}
-          onFocus={onFocus} //AQUI
-          onBlur={onBlur} //AQUI
+          onFocus={onFocus} 
+          onBlur={onBlur}
+          isFocused={isFocused}
         />
       </FormBox>
     </>
@@ -56,10 +58,8 @@ const InputBox = styled.input`
   font-size: 20px;
   background-color: ${theme.input};
   &&:focus {
-    /* border: 0px solid; */
+    border: 0 solid;
     box-shadow: 0 0 0 0;
-    outline: 0;
-    border-color: #4CAF50;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5)
+    outline: ${(props) => props.isFocused ? '2px solid #FF9900' : '0'} ;
   }
 `;
