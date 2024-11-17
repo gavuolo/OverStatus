@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { NavInput } from "../../../components/Input/NavInput";
 import { ContentBox, Description } from "./Styles";
 import { IoSearchSharp } from "react-icons/io5";
-import { theme } from "../../../assets/Colors";
+import { theme, fonts } from "../../../assets/Colors";
 import { useState } from "react";
 
 export default function Players() {
@@ -15,21 +15,27 @@ export default function Players() {
           <h1>JOGADORES</h1>
           <div></div>
         </Description>
-        <SearchBox isFocused={isFocused} isSearchFocused={isSearchFocused}>
-          <NavInput
-            placeholder={"Nome do jogaddor"}
-            width={"100%"}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-          />
-          <IconSearch
-            isFocused={isFocused}
-            onMouseEnter={() => setIsSearchFocused(true)}
-            onMouseLeave={() => setIsSearchFocused(false)}
-          >
-            <IoSearchSharp />
-          </IconSearch>
-        </SearchBox>
+        <PlayerBox>
+          <WarningBox>
+            <h3>Procure um jogador usando seu nome de usuário.</h3>
+            <h3>* Nomes de jogadores podem incluir caracteres especiais.</h3>
+          </WarningBox>
+          <SearchBox isFocused={isFocused} isSearchFocused={isSearchFocused}>
+            <NavInput
+              placeholder={"Nome do jogaddor"}
+              width={"100%"}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
+            />
+            <IconSearch
+              isFocused={isFocused}
+              onMouseEnter={() => setIsSearchFocused(true)}
+              onMouseLeave={() => setIsSearchFocused(false)}
+            >
+              <IoSearchSharp />
+            </IconSearch>
+          </SearchBox>
+        </PlayerBox>
       </ContentBox>
     </>
   );
@@ -59,12 +65,28 @@ const SearchBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 55%;
-  height: auto;
+  width: 60%;
+  height: 60%;
   background-color: ${theme.input};
   border-radius: 10px;
   border: 2px solid
     ${({ isFocused, isSearchFocused }) =>
       isFocused || isSearchFocused ? theme.orange : "transparent"};
   transition: border-color 0.4s ease;
+`;
+const WarningBox = styled.div`
+  width: 30%;
+  height: auto;
+
+  h3 {
+    font-size: ${fonts.footnote};
+    color: ${theme.white};
+    margin-bottom: 1%;
+  }
+`;
+const PlayerBox = styled.div`
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 `;

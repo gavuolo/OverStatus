@@ -10,7 +10,11 @@ export const theme = {
 }
 
 export const fonts ={
-    butons: '20px'
+    butons: '20px',
+    title: '35px',
+    subtitle: '20px',
+    text: '16px',
+    footnote: '12px'
 }
 
 export const hitpoints  ={

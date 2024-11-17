@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { theme } from "../../assets/Colors";
 
 export function RoleButton({ text, onClick, type, disabled, height, width, bgcolor, color, src, alt }) {
+  console.log(bgcolor)
   return (
     <>
       <ButtonBox

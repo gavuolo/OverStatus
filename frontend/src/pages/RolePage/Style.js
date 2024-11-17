@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../../assets/Colors";
+import { theme, fonts } from "../../assets/Colors";
 
 export const TopBox = styled.div`
   width: 85vw;
@@ -45,6 +45,7 @@ export const DescriptionBox = styled.div`
   text-align: center;
   p {
     color: ${theme.white};
+    font-size: ${fonts.subtitle};
   }
 `;
 export const HeroesBox = styled.div`

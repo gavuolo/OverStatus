@@ -49,7 +49,7 @@ table {
 *{
 	user-select: none;
 	box-sizing: border-box;
-	font-family: 'BigNoodle';
+	font-family: "BigNoodle";
 	font-weight: normal;
 }
 p {
@@ -57,11 +57,21 @@ p {
 	font-weight: normal;
 	color: #000000;
 	font-size: 20px;
-}
-h1, h2{
+}//textos de destaques
+h3{ 
+	font-family: "Open Sans", sans-serif;
+	font-weight: 500;
+	user-select: text;
+	line-height: 1.2
+} //textos de leitura longa
+h1{
 	font-family:'BigNoodleOblique';
 	font-size: 35px;
-}
+} //titulos
+h2{ 
+	font-family:'BigNoodleOblique';
+	font-size: 20px;
+} //subtitulos
 body::-webkit-scrollbar {
   width: 12px;               /* width of the entire scrollbar */
 }
