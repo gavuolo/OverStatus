@@ -43,9 +43,9 @@ export const DescriptionBox = styled.div`
   text-align: center;
   margin-bottom: 25px;
   text-align: center;
-  p {
+  h3 {
     color: ${theme.white};
-    font-size: ${fonts.subtitle};
+    font-size: ${fonts.text};
   }
 `;
 export const HeroesBox = styled.div`

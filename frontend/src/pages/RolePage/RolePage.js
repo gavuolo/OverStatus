@@ -29,12 +29,12 @@ import { theme } from "../../assets/Colors";
 import { RoleButton } from "../../components/Button/RoleButton";
 import UserContext from "../../context/useContext";
 import { icons } from "react-icons/lib";
+import { RolesMap } from "./Content/RolesMap";
+import { HeroesMap } from "./Content/HeroesMap";
 
 export default function RolePage() {
-  const [heroes, setHeroes] = useState(undefined);
-  // const { roles, setRoles } = useContext(UserContext)
-  const [roleDescription, setRoleDescription] = useState(undefined);
-  const [rolesButton, setRolesButton] = useState(undefined);
+  const { setRolesButton, setHeroes, roleDescription, setRoleDescription } =
+    useContext(UserContext);
   const navigate = useNavigate();
   const location = useLocation();
   const { idRole } = useParams();
@@ -42,7 +42,9 @@ export default function RolePage() {
     try {
       const response = await getHeroes(idRole);
       const roleResponse = await getRoles();
-      const description = roleResponse.find((a) => a.key === idRole)?.description;
+      const description = roleResponse.find(
+        (a) => a.key === idRole
+      )?.description;
       setRolesButton(roleResponse);
       setRoleDescription(description);
       setHeroes(response);
@@ -54,98 +56,6 @@ export default function RolePage() {
   useEffect(() => {
     apiResponse();
   }, [location.key]);
-  function selectHero(key) {
-    navigate(`/heroi/${key}`);
-  }
-  function selectRole(key) {
-    navigate(`/role/${key}`);
-  }
-  function HeroesMap() {
-    return (
-      <>
-        {heroes ? (
-          <>
-            {heroes.map((a, index) => {
-              const icon = rolesButton.find(
-                (find) => find.key === a.role
-              )?.icon;
-              return (
-                <HeroCardWrapper key={index} onClick={() => selectHero(a.key)}>
-                  <HeroCard>
-                    <HeroImage>
-                      <img src={a.portrait} alt={a.name}/>
-                    </HeroImage>
-                    <HeroName>
-                      <RoleIcon>
-                        <img src={icon} alt={a.role}/>
-                      </RoleIcon>
-                      <p>{a.name}</p>
-                    </HeroName>
-                  </HeroCard>
-                </HeroCardWrapper>
-              );
-            })}
-          </>
-        ) : (
-          <>
-            <CentralizeDots>
-              <ThreeDots
-                height="60"
-                width="60"
-                radius="5"
-                color={theme.gray}
-                ariaLabel="three-dots-loading"
-                wrapperStyle={{}}
-                wrapperClassName=""
-                visible={true}
-              />
-            </CentralizeDots>
-          </>
-        )}
-      </>
-    );
-  }
-  function RolesMap() {
-    return (
-      <>
-        {rolesButton ? (
-          <>
-            {rolesButton.map((a, index) => {
-              return (
-                <RoleButton
-                  key={index}
-                  text={`${a.name}`}
-                  width="10%"
-                  height="50%"
-                  bgcolor={
-                    a.key === idRole ? `${theme.green}` : `${theme.primary}`
-                  }
-                  src={a.icon}
-                  alt={a.name}
-                  onClick={() => selectRole(`${a.key}`)}
-                />
-              );
-            })}
-          </>
-        ) : (
-          <>
-            <CentralizeDots>
-              <ThreeDots
-                height="60"
-                width="60"
-                radius="5"
-                color={theme.gray}
-                ariaLabel="three-dots-loading"
-                wrapperStyle={{}}
-                wrapperClassName=""
-                visible={true}
-              />
-            </CentralizeDots>
-          </>
-        )}
-      </>
-    );
-  }
   return (
     <>
       <NavBar />
@@ -156,7 +66,7 @@ export default function RolePage() {
       </TopBox>
       <Content>
         <DescriptionBox>
-          <p>{roleDescription}</p>
+          <h3>{roleDescription}</h3>
         </DescriptionBox>
         <HeroesBox>
           <HeroesMap />
