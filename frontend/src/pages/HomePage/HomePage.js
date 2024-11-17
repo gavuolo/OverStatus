@@ -36,10 +36,12 @@ const Apresentation = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible; 
   background-image: url(${overwatchimage});
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: top;
+  margin-bottom: -50px;
   h1 {
     font-size: 50px;
   }
@@ -47,7 +49,7 @@ const Apresentation = styled.div`
 const Content = styled.div`
   width: 100%;
   height: 100%;
-  margin-bottom: 30px;
+  padding-bottom: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;

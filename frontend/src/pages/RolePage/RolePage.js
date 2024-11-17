@@ -15,34 +15,26 @@ import {
 import { getHeroes } from "../../services/overFastApi/heroesService";
 import { useContext, useEffect, useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
-import { Link, Navigate, useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  Link,
+  Navigate,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import { getRoles } from "../../services/overFastApi/rolesService";
 import Footer from "../../components/Footer/Footer";
 import { NavButton } from "../../components/Button/NavButton";
 import { theme } from "../../assets/Colors";
 import { RoleButton } from "../../components/Button/RoleButton";
 import UserContext from "../../context/useContext";
+import { icons } from "react-icons/lib";
 
 export default function RolePage() {
   const [heroes, setHeroes] = useState(undefined);
   // const { roles, setRoles } = useContext(UserContext)
-  const [roles, setRoles] = useState([
-    {
-      name: "Tanque",
-      icon: "https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt0f8b4fa502f0ea53/62ea8957ed429710b3d9b0b0/Tank.svg",
-    },
-    {
-      name: "Dano",
-      icon: "https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/bltc1d840ba007f88a8/62ea89572fdd1011027e605d/Damage.svg",
-    },
-    {
-      name: "Suporte",
-      icon: "https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt66cec9a29cd34e3d/62ea8957c87999116c02c674/Support.svg",
-    },
-  ]);
-  const [roleName, setRoleName] = useState(undefined);
   const [roleDescription, setRoleDescription] = useState(undefined);
-  const [icon, setIcon] = useState(undefined);
+  const [rolesButton, setRolesButton] = useState(undefined);
   const navigate = useNavigate();
   const location = useLocation();
   const { idRole } = useParams();
@@ -50,10 +42,9 @@ export default function RolePage() {
     try {
       const response = await getHeroes(idRole);
       const roleResponse = await getRoles();
-      const filterRole = roleResponse.filter((a) => a.key === idRole);
-      setIcon(filterRole[0].icon);
-      setRoleName(filterRole[0].name);
-      setRoleDescription(filterRole[0].description);
+      const description = roleResponse.find((a) => a.key === idRole)?.description;
+      setRolesButton(roleResponse);
+      setRoleDescription(description);
       setHeroes(response);
     } catch (error) {
       setHeroes(error);
@@ -75,15 +66,18 @@ export default function RolePage() {
         {heroes ? (
           <>
             {heroes.map((a, index) => {
+              const icon = rolesButton.find(
+                (find) => find.key === a.role
+              )?.icon;
               return (
                 <HeroCardWrapper key={index} onClick={() => selectHero(a.key)}>
                   <HeroCard>
                     <HeroImage>
-                      <img src={a.portrait} />
+                      <img src={a.portrait} alt={a.name}/>
                     </HeroImage>
                     <HeroName>
                       <RoleIcon>
-                        <img src={icon} />
+                        <img src={icon} alt={a.role}/>
                       </RoleIcon>
                       <p>{a.name}</p>
                     </HeroName>
@@ -111,39 +105,53 @@ export default function RolePage() {
       </>
     );
   }
-
+  function RolesMap() {
+    return (
+      <>
+        {rolesButton ? (
+          <>
+            {rolesButton.map((a, index) => {
+              return (
+                <RoleButton
+                  key={index}
+                  text={`${a.name}`}
+                  width="10%"
+                  height="50%"
+                  bgcolor={
+                    a.key === idRole ? `${theme.green}` : `${theme.primary}`
+                  }
+                  src={a.icon}
+                  alt={a.name}
+                  onClick={() => selectRole(`${a.key}`)}
+                />
+              );
+            })}
+          </>
+        ) : (
+          <>
+            <CentralizeDots>
+              <ThreeDots
+                height="60"
+                width="60"
+                radius="5"
+                color={theme.gray}
+                ariaLabel="three-dots-loading"
+                wrapperStyle={{}}
+                wrapperClassName=""
+                visible={true}
+              />
+            </CentralizeDots>
+          </>
+        )}
+      </>
+    );
+  }
   return (
     <>
       <NavBar />
       <TopBox>
         <ButtonBox>
-          <RoleButton
-            text="Tanque"
-            width="10%"
-            height="50%"
-            bgcolor={roleName === "Tanque"}
-            src={roles[0].icon}
-            alt={roles[0].name}
-            onClick={() => selectRole('tank')}
-          />
-          <RoleButton
-            text="Dano"
-            width="10%"
-            height="50%"
-            bgcolor={roleName === "Dano"}
-            src={roles[1].icon}
-            alt={roles[1].name}
-            onClick={() => selectRole('damage')}
-          />
-          <RoleButton
-            text="Suporte"
-            width="10%"
-            height="50%"
-            bgcolor={roleName === "Suporte"}
-            src={roles[2].icon}
-            alt={roles[2].name}
-            onClick={() => selectRole('support')}
-          />
+          <RolesMap />
         </ButtonBox>
       </TopBox>
       <Content>

@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { theme } from "../../assets/Colors";
 
 export function RoleButton({ text, onClick, type, disabled, height, width, bgcolor, color, src, alt }) {
-  console.log(bgcolor)
   return (
     <>
       <ButtonBox
@@ -26,7 +25,8 @@ const ButtonBox = styled.div`
   width: 20%;
   height: 90%;
   border-radius: 5px;
-  background-color: ${(props) => props.bgcolor ? `${theme.green}` : `${theme.primary}`};
+  /* background-color: ${(props) => props.bgcolor ? `${theme.green}` : `${theme.primary}`}; */
+  background-color: ${(props) => props.bgcolor};
   display: flex;
   color: ${theme.white};
   align-items: center;
