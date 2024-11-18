@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme, fonts } from "../../assets/Colors";
+import { theme, fonts } from "../../../assets/Colors";
 
 export const TopBox = styled.div`
   width: 85vw;
@@ -9,12 +9,9 @@ export const TopBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  h1 {
-    color: ${theme.white};
-  }
 `;
 export const ButtonBox = styled.div`
-  width: 45%;
+  width: 50%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -23,6 +20,7 @@ export const ButtonBox = styled.div`
 export const Content = styled.div`
   width: 85vw;
   height: auto;
+  /* min-height: 60vh; */
   flex: 1;
   padding: 30px 0 30px 0;
   margin-bottom: 30px;
@@ -36,90 +34,86 @@ export const Content = styled.div`
 `;
 export const DescriptionBox = styled.div`
   width: 85%;
-  height: auto;
+  min-height: 10vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   margin-bottom: 25px;
   text-align: center;
-  h3 {
-    color: ${theme.white};
+  color: ${theme.white};
     font-size: ${fonts.text};
-  }
+
 `;
 export const HeroesBox = styled.div`
   width: 85%;
-  height: auto;
+  min-height: 50vh;
+  /* height: auto; */
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-flow: row wrap;  
+  flex-flow: row wrap;
   /* &&:last-child {
     flex-flow: initial;
   }  */
 `;
 export const HeroCardWrapper = styled.div`
-  transition: transform 0.2s;
+  /* transition: transform 0.2s; */
+  transition: transform 0.1s;
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.15);
     cursor: pointer;
   }
 `;
 export const HeroCard = styled.div`
   background-color: ${theme.gray};
-  border-radius: 9px;
-  border: 1px solid white;
+  outline: 1px solid ${theme.primary};
   width: 170px;
   height: 220px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  
   margin: 10px;
+  overflow: hidden;
+  &:hover{
+    /* border: 1px solid ${theme.white}; */
+    outline: 1px solid ${theme.gray};
+  }
 `;
 export const HeroImage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  background-color: ${theme.gray};
+  overflow: hidden;
   img {
-    max-width: 85%;
+    max-width: 90%;
   }
 `;
 export const HeroName = styled.div`
-  width: 75%;
+  width: 60%;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  p {
-    margin-right: 15px;
+  h2 {
+    /* margin-right: 15px; */
+    margin-left: 0.3rem;
     text-align: center;
+    color: ${theme.black};
   }
 `;
-export const CentralizeDots = styled.div`
-  width: 95vw;
-  min-height: 36vh;
-  margin-bottom: 20px;
-  background-color: ${theme.blue};
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+
 export const RoleIcon = styled.div`
   width: auto;
   height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
-  background-color: black;
+  border: 1px solid ${theme.black};
+  background-color: ${theme.primary};
   padding: 3%;
   border-radius: 50%;
-  margin-left: 15px;
-  
   img {
     width: 20px;
     padding: 2px;

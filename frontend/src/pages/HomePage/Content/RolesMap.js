@@ -84,7 +84,7 @@ const RoleIcon = styled.div`
   img {
     width: 40%;
   }
-  transition: transform 0.3s;
+  transition: transform 0.2s;
   &:hover {
     transform: scale(1.2);
     z-index: 0;

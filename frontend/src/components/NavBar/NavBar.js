@@ -60,7 +60,7 @@ export default function NavBar() {
               width={"90%"}
               height={"40%"}
               color={theme.black}
-              bgcolor={theme.orange}
+              bgcolor={theme.green}
             />
           </LoginBox>
         </CentralizeBar>

@@ -1,41 +1,27 @@
 import NavBar from "../../components/NavBar/NavBar";
 import {
-  HeroCard,
-  HeroImage,
-  HeroName,
   HeroesBox,
   TopBox,
-  HeroCardWrapper,
-  CentralizeDots,
   Content,
-  RoleIcon,
   DescriptionBox,
   ButtonBox,
-} from "./Style";
+} from "./Content/Styles";
 import { getHeroes } from "../../services/overFastApi/heroesService";
 import { useContext, useEffect, useState } from "react";
-import { ThreeDots } from "react-loader-spinner";
-import {
-  Link,
-  Navigate,
-  useLocation,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { getRoles } from "../../services/overFastApi/rolesService";
 import Footer from "../../components/Footer/Footer";
-import { NavButton } from "../../components/Button/NavButton";
-import { theme } from "../../assets/Colors";
-import { RoleButton } from "../../components/Button/RoleButton";
 import UserContext from "../../context/useContext";
-import { icons } from "react-icons/lib";
-import { RolesMap } from "./Content/RolesMap";
+import { ButtonsMap, RolesMap } from "./Content/ButtonsMap";
 import { HeroesMap } from "./Content/HeroesMap";
+import { Loader } from "../../components/Loader/ThreeDots";
+import { theme } from "../../assets/Colors";
 
 export default function RolePage() {
-  const { setRolesButton, setHeroes, roleDescription, setRoleDescription } =
-    useContext(UserContext);
-  const navigate = useNavigate();
+  const [rolesButton, setRolesButton] = useState(undefined);
+  const [heroes, setHeroes] = useState([]);
+  const [roleDescription, setRoleDescription] = useState(undefined);
+  const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
   const { idRole } = useParams();
   async function apiResponse() {
@@ -43,11 +29,12 @@ export default function RolePage() {
       const response = await getHeroes(idRole);
       const roleResponse = await getRoles();
       const description = roleResponse.find(
-        (a) => a.key === idRole
+        (item) => item.key === idRole
       )?.description;
       setRolesButton(roleResponse);
       setRoleDescription(description);
       setHeroes(response);
+      setIsLoading(false);
     } catch (error) {
       setHeroes(error);
       return;
@@ -55,21 +42,28 @@ export default function RolePage() {
   }
   useEffect(() => {
     apiResponse();
+    setIsLoading(true);
   }, [location.key]);
+
   return (
     <>
       <NavBar />
       <TopBox>
         <ButtonBox>
-          <RolesMap />
+          <ButtonsMap rolesButton={rolesButton} />
         </ButtonBox>
       </TopBox>
       <Content>
         <DescriptionBox>
-          <h3>{roleDescription}</h3>
+          {!isLoading && <h3>{roleDescription}</h3>}
         </DescriptionBox>
         <HeroesBox>
-          <HeroesMap />
+          <Loader color={theme.gray} visible={isLoading} />
+          <HeroesMap
+            heroes={heroes}
+            rolesButton={rolesButton}
+            isLoading={isLoading}
+          />
         </HeroesBox>
       </Content>
       <Footer />
