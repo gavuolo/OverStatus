@@ -65,6 +65,7 @@ const RoleMapBox = styled.div`
   width: 60%;
   height: auto;
   justify-content: space-around;
+  overflow: visible;
 `;
 
 const RoleIcon = styled.div`
@@ -86,14 +87,17 @@ const RoleIcon = styled.div`
   }
   transition: transform 0.2s;
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.14);
     z-index: 0;
     cursor: pointer;
+    border: 2px solid ${theme.white};
+    border-radius: 5px;
+    
     h2 {
-    background: linear-gradient(to right, ${theme.green} 0%, ${theme.green} 100%);
+    /* background: linear-gradient(to right, ${theme.green} 0%, ${theme.green} 100%);
     background-repeat: no-repeat;
     background-size: 100% 100%; 
-    transition: background-size 0.4s ease, color 0.4s ease; 
+    transition: background-size 0.4s ease, color 0.4s ease;  */
     }
   }
 `;

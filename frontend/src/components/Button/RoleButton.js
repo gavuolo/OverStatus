@@ -40,9 +40,10 @@ const ButtonBox = styled.div`
   height: 90%; */
   width: ${(props) => props.width};
   height: ${(props) => props.height};
-  border-radius: 5px;
+  /* border-radius: 5px; */
   background-color: ${(props) => props.bgcolor};
   background: ${(props) => props.bg};
+  margin: 1%;
   /* border: 5px solid ${(props) => props.bgcolor}; */
   background-size: 0% 100%;
   display: flex;
@@ -64,7 +65,7 @@ const ButtonBox = styled.div`
   transition: background-color 0.5s ease;
 
   &:hover {
-    outline: 0.2rem solid ${theme.green};
+    outline: 0.15rem solid ${theme.white};
   }
 
   @media (max-width: 950px) {

@@ -4,25 +4,26 @@ import { theme, fonts } from "../../../assets/Colors";
 export const TopBox = styled.div`
   width: 85vw;
   margin-top: 80px;
-  height: 150px;
-  padding: 30px 0 50px 0;
+  height: 110px;
+  padding: 30px 0 10px 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  
 `;
 export const ButtonBox = styled.div`
-  width: 50%;
+  width: 45%;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 `;
 export const Content = styled.div`
   width: 85vw;
   height: auto;
   /* min-height: 60vh; */
   flex: 1;
-  padding: 30px 0 30px 0;
+  padding: 10px 0 30px 0;
   margin-bottom: 30px;
   background-color: ${theme.blue};
   display: flex;
@@ -67,7 +68,7 @@ export const HeroCardWrapper = styled.div`
 `;
 export const HeroCard = styled.div`
   background-color: ${theme.gray};
-  outline: 1px solid ${theme.primary};
+  outline: 2px solid ${theme.primary};
   width: 170px;
   height: 220px;
   display: flex;
@@ -78,7 +79,7 @@ export const HeroCard = styled.div`
   overflow: hidden;
   &:hover{
     /* border: 1px solid ${theme.white}; */
-    outline: 1px solid ${theme.gray};
+    outline: 2px solid ${theme.white};
   }
 `;
 export const HeroImage = styled.div`
