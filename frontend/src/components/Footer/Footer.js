@@ -3,44 +3,119 @@ import { Logo } from "../Logo/Logo";
 import { NavButton } from "../Button/NavButton";
 import { NavInput } from "../Input/NavInput";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import { theme } from "../../assets/Colors";
+import { fonts, theme } from "../../assets/Colors";
+import { SocialIcon } from "react-social-icons";
 
 export default function Footer() {
   return (
     <>
       <FooterBar>
         <MenuFooter>
-          <Typography>overstatus</Typography>
+          <Logo />
           <Line />
           <FooterInfos>
-            <FirstColumn>
-              {/* <NavButton
+            <Column>
+              <NavButton
                 text={"Heróis"}
                 width={"90%"}
                 height={"20%"}
-                color={theme.black}
-                bgcolor={theme.blue}
+                color={theme.white}
+                bgcolor={theme.primary}
+                bgcolorhover={"transparent"}
+                colorhover={theme.orange}
+              />
+              <NavButton
+                text={"Mapas"}
+                width={"90%"}
+                height={"1%"}
+                color={theme.white}
+                bgcolor={theme.primary}
+                bgcolorhover={"transparent"}
+                colorhover={theme.orange}
+              />
+              <NavButton
+                text={"Modos de Jogo"}
+                width={"90%"}
+                height={"1%"}
+                color={theme.white}
+                bgcolor={theme.primary}
+                bgcolorhover={"transparent"}
+                colorhover={theme.orange}
+              />
+            </Column>
+            <Column>
+              <NavButton
+                text={"Guias"}
+                width={"90%"}
+                height={"1%"}
+                color={theme.white}
+                bgcolor={theme.primary}
+                bgcolorhover={"transparent"}
+                colorhover={theme.blue}
+              />
+              <NavButton
+                text={"Streams"}
+                width={"90%"}
+                height={"1%"}
+                color={theme.white}
+                bgcolor={theme.primary}
+                bgcolorhover={"transparent"}
+                colorhover={theme.blue}
+              />
+              <NavButton
+                text={"Notícias"}
+                width={"90%"}
+                height={"1%"}
+                color={theme.white}
+                bgcolor={theme.primary}
+                bgcolorhover={"transparent"}
+                colorhover={theme.blue}
+              />
+            </Column>
+            <Column>
+              <NavButton
+                text={"Fale conosco"}
+                width={"90%"}
+                height={"1%"}
+                color={theme.white}
+                bgcolor={theme.primary}
                 bgcolorhover={"transparent"}
                 colorhover={theme.green}
               />
-                <NavButton
-                text={"Heróis"}
-                width={"90%"}
-                height={"10%"}
-                color={theme.black}
-                bgcolor={theme.blue}
-                bgcolorhover={"transparent"}
-                colorhover={theme.green}
-              /> */}
-
-            </FirstColumn>
-            <SecondColumn>
-
-            </SecondColumn>
-            <ThirdColumn>
-
-            </ThirdColumn>
-            <MyInfo></MyInfo>
+            </Column>
+            <Column>
+              <Typography>Criado por:</Typography>
+              <Typography>Gavuolo</Typography>
+              <SocialMedia>
+                <SocialIcon
+                  url="https://github.com/gavuolo"
+                  fallback="Github"
+                  aria-label="Github"
+                  bgColor={theme.white}
+                  fgColor={theme.black}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+                <SocialIcon
+                  url="https://www.linkedin.com/in/gavuolo/"
+                  fallback="Linkedin"
+                  aria-label="Linkedin"
+                  bgColor={theme.white}
+                  fgColor={theme.black}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+                <SocialIcon
+                  url="mailto:gabs.vuolo@gmail.com"
+                  aria-label="Enviar E-mail"
+                  fallback="E-mail"
+                  bgColor={theme.white}
+                  fgColor={theme.black}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              </SocialMedia>
+            </Column>
           </FooterInfos>
         </MenuFooter>
       </FooterBar>
@@ -72,9 +147,11 @@ const MenuFooter = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-const Typography = styled.p`
-  font-size: 30px;
-  color: ${theme.blue};
+const Typography = styled.h2`
+  font-size: ${fonts.butons};
+  white-space: nowrap;
+  color: ${theme.white};
+  text-align: center;
   font-family: "Terminator";
 `;
 const Line = styled.div`
@@ -86,29 +163,41 @@ const Line = styled.div`
 const FooterInfos = styled.div`
   width: 60%;
   height: auto;
-  background-color: blueviolet;
   display: flex;
 `;
-const FirstColumn = styled.div`
+const Column = styled.div`
   width: 25%;
   height: auto;
-  background-color: red;
   display: flex;
   flex-direction: column;
+  text-align: center;
+`;
 
+const SocialMedia = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+
+  margin-top: 4%;
+  svg {
+    border-radius: 0 !important;
+  }
+  svg:hover {
+    border: 3px solid ${theme.primary};
+  }
 `;
-const SecondColumn = styled.div`
-  width: 25%;
-  height: auto;
-  background-color: blue;
-`;
-const ThirdColumn = styled.div`
-  width: 25%;
-  height: auto;
-  background-color: green;
-`;
-const MyInfo = styled.div`
-  width: 25%;
-  height: auto;
-  background-color: beige;
-`;
+
+// const SecondColumn = styled.div`
+//   width: 25%;
+//   height: auto;
+//   background-color: blue;
+// `;
+// const ThirdColumn = styled.div`
+//   width: 25%;
+//   height: auto;
+//   background-color: green;
+// `;
+// const MyInfo = styled.div`
+//   width: 25%;
+//   height: auto;
+//   background-color: beige;
+// `;

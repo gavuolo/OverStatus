@@ -11,7 +11,7 @@ export default function Register() {
     <>
       <ItemBox>
         <Strip>
-          <h1>Comente e ajuda quem precisa</h1>
+          <h1>Comente e ajude quem precisa</h1>
           <NavButton
             text="Registrar"
             width="auto"
