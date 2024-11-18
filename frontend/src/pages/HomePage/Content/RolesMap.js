@@ -89,7 +89,7 @@ const RoleIcon = styled.div`
     transform: scale(1.2);
     z-index: 0;
     cursor: pointer;
-    h2 {   
+    h2 {
     background: linear-gradient(to right, ${theme.green} 0%, ${theme.green} 100%);
     background-repeat: no-repeat;
     background-size: 100% 100%; 

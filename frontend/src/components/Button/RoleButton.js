@@ -16,7 +16,6 @@ export function RoleButton({
   alt,
   bg,
 }) {
-  console.log(color)
   return (
     <>
       <ButtonBox
