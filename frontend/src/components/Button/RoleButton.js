@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { theme } from "../../assets/Colors";
+import { fonts, rgbTheme, theme } from "../../assets/Colors";
 import axios from "axios";
+import { ReactSVG } from "react-svg";
+import UserContext from "../../context/useContext";
 
 export function RoleButton({
   text,
@@ -15,6 +17,8 @@ export function RoleButton({
   src,
   alt,
   bg,
+  hoverbgcolor,
+  fillsvg
 }) {
   return (
     <>
@@ -27,9 +31,11 @@ export function RoleButton({
         bgcolor={bgcolor}
         color={color}
         bg={bg}
+        hoverbgcolor={hoverbgcolor}
+        fillsvg={fillsvg}
       >
-        {src && <img src={src} alt={alt} />}
-        <h2>{text}</h2>
+        <ReactSVG src={src}/>
+        <h1>{text}</h1>
       </ButtonBox>
     </>
   );
@@ -40,32 +46,36 @@ const ButtonBox = styled.div`
   height: 90%; */
   width: ${(props) => props.width};
   height: ${(props) => props.height};
-  /* border-radius: 5px; */
+  border-radius: 3px;
   background-color: ${(props) => props.bgcolor};
-  background: ${(props) => props.bg};
+  /* background: ${(props) => props.bg}; */
   margin: 1%;
-  /* border: 5px solid ${(props) => props.bgcolor}; */
+  /* border: 5px solid black; */
   background-size: 0% 100%;
   display: flex;
-  color: ${theme.white};
   align-items: center;
   justify-content: center;
-  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45);
+  /* -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45);
   -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45);
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45); */
   gap: 10%;
   cursor: pointer;
-  h2 {
+  h1 {
+    font-size: ${fonts.subtitle};
     color: ${(props) => props.color};
   }
-  img {
-    width: 25px;
-    height: 25px;
-  }
-  transition: background-color 0.5s ease;
+  svg{
+    width: 2rem;
+    height: 2rem;
+  path{
+    fill: ${(props) => props.fillsvg};
+  }}
 
   &:hover {
-    outline: 0.15rem solid ${theme.white};
+    outline: 0.15rem solid ${theme.green};
+    box-shadow: 0 0 0 1px ${theme.green};
+    background-color: rgba(${(props) => props.hoverbgcolor});
+
   }
 
   @media (max-width: 950px) {

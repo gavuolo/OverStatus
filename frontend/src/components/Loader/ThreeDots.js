@@ -13,3 +13,15 @@ export const Loader = ({ height, width, color, visible }) => (
     visible={visible}
   />
 );
+
+
+{/* <ThreeDots
+height="70%"
+width="30%"
+radius="9"
+color="#EEEEEE"
+ariaLabel="three-dots-loading"
+wrapperStyle={{}}
+wrapperClassName=""
+visible={true}
+/> */}

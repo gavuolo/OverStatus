@@ -36,7 +36,7 @@ export function NavButton({
 const ButtonBox = styled.div`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
-  border-radius: 5px;
+  border-radius: 2px;
   background-color: ${(props) => props.bgcolor};
   color: ${theme.white};
   display: flex;

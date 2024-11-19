@@ -4,9 +4,15 @@ export const theme = {
     green: '#33CC33',
     black: '#000000',
     blue: '#0099CC',
+    skyBlue: '#02DBFF',
     orange: '#FF9900',
     white: '#FFFFFF',
     input: '#a7a7a7'
+}
+export const rgbTheme = { 
+    skyBlue: '2, 219, 255',
+    green: '51,204,51',
+
 }
 
 export const fonts ={

@@ -5,9 +5,11 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { RoleButton } from "../../../components/Button/RoleButton";
 import { icons } from "react-icons/lib";
 import UserContext from "../../../context/useContext";
-import { theme } from "../../../assets/Colors";
+import { rgbTheme, theme } from "../../../assets/Colors";
 import { Loader } from "../../../components/Loader/ThreeDots";
 import { getRoles } from "../../../services/overFastApi/rolesService";
+
+
 
 export function ButtonsMap({ rolesButton }) {
   const navigate = useNavigate();
@@ -26,6 +28,9 @@ export function ButtonsMap({ rolesButton }) {
               width="20%"
               height="90%"
               bgcolor={a.key === idRole ? `${theme.green}` : `${theme.primary}`}
+              color={a.key === idRole ? `${theme.primary}` : `${theme.white}`}
+              hoverbgcolor={a.key === idRole ? `${rgbTheme.green}, 1` : `${rgbTheme.green}, 0.6`}
+              fillsvg={a.key === idRole ? `${theme.primary}` : `${theme.white}`}
               src={a.icon}
               alt={a.name}
               onClick={() => selectRole(`${a.key}`)}
