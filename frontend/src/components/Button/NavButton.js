@@ -9,10 +9,10 @@ export function NavButton({
   disabled,
   height,
   width,
-  bgcolor,
+  $bgcolor,
   color,
-  bgcolorhover,
-  colorhover,
+  $bgcolorhover,
+  $colorhover,
   bordercolor
 }) {
   return (
@@ -23,10 +23,10 @@ export function NavButton({
         disabled={disabled}
         height={height}
         width={width}
-        bgcolor={bgcolor}
+        $bgcolor={$bgcolor}
         color={color}
-        bgcolorhover={bgcolorhover}
-        colorhover={colorhover}
+        $bgcolorhover={$bgcolorhover}
+        $colorhover={$colorhover}
         bordercolor={bordercolor}
       >
         <h1>{text}</h1>
@@ -39,7 +39,7 @@ const ButtonBox = styled.div`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   border-radius: 2px;
-  background-color: ${(props) => props.bgcolor};
+  background-color: ${(props) => props.$bgcolor};
   color: ${theme.white};
   display: flex;
   align-items: center;
@@ -54,11 +54,11 @@ const ButtonBox = styled.div`
     white-space: nowrap; //nao vai quebrar em outras linhas
   }
   &&:hover {
-    background-color: ${(props) => props.bgcolorhover ? `${props.bgcolorhover}` : `${theme.gray}`};
+    background-color: ${(props) => props.$bgcolorhover ? `${props.$bgcolorhover}` : `${theme.gray}`};
     outline: ${(props) => props.bordercolor ? `${props.bordercolor}`: `${props.bordercolor}`};
     color: ${theme.black};
     h1{
-      color: ${(props) => props.colorhover ? `${props.colorhover}` : `${theme.black}`};
+      color: ${(props) => props.$colorhover ? `${props.$colorhover}` : `${theme.black}`};
     }
   }
 

@@ -10,10 +10,9 @@ export default function Players() {
   const [isFocused, setIsFocused] = useState(false);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [playerId, setPlayerId] = useState({})
-  console.log(playerId.value)
   return (
     <>
-      <ContentBox bgcolor={theme.primary} color={theme.white}>
+      <ContentBox $bgcolor={theme.primary} color={theme.white}>
         <Description>
           <h1>JOGADORES</h1>
           <div></div>
@@ -23,7 +22,7 @@ export default function Players() {
             <h3>Procure um jogador usando seu nome de usuário.</h3>
             <h3>* Nomes de jogadores podem incluir caracteres especiais.</h3>
           </WarningBox>
-          <SearchBox isFocused={isFocused} isSearchFocused={isSearchFocused}>
+          <SearchBox $isFocused={isFocused} $isSearchFocused={isSearchFocused}>
             <NavInput
               placeholder={"Nome do jogaddor"}
               width={"100%"}
@@ -32,7 +31,6 @@ export default function Players() {
               onChange={setPlayerId}
             />
             <IconSearch
-              isFocused={isFocused}
               onMouseEnter={() => setIsSearchFocused(true)}
               onMouseLeave={() => setIsSearchFocused(false)}
             >

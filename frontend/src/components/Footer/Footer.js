@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Logo } from "../Logo/Logo";
 import { NavButton } from "../Button/NavButton";
-import { NavInput } from "../Input/NavInput";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { fonts, rgbTheme, theme } from "../../assets/Colors";
 import { SocialIcon } from "react-social-icons";
@@ -20,10 +19,9 @@ export default function Footer() {
                 width={"auto"}
                 height={"20%"}
                 color={theme.white}
-                bgcolor={theme.primary}
-                bgcolorhover={"transparent"}
-            
-                colorhover={theme.orange}
+                $bgcolor={theme.primary}
+                $bgcolorhover={"transparent"}
+                $colorhover={theme.orange}
              
               />
               <NavButton
@@ -31,18 +29,18 @@ export default function Footer() {
                 width={"auto"}
                 height={"20%"}
                 color={theme.white}
-                bgcolor={theme.primary}
-                bgcolorhover={"transparent"}
-                colorhover={theme.orange}
+                $bgcolor={theme.primary}
+                $bgcolorhover={"transparent"}
+                $colorhover={theme.orange}
               />
               <NavButton
                 text={"Modos de Jogo"}
                 width={"auto"}
                 height={"20%"}
                 color={theme.white}
-                bgcolor={theme.primary}
-                bgcolorhover={"transparent"}
-                colorhover={theme.orange}
+                $bgcolor={theme.primary}
+                $bgcolorhover={"transparent"}
+                $colorhover={theme.orange}
               />
             </Column>
             <Column>
@@ -51,27 +49,27 @@ export default function Footer() {
                 width={"auto"}
                 height={"20%"}
                 color={theme.white}
-                bgcolor={theme.primary}
-                bgcolorhover={"transparent"}
-                colorhover={theme.blue}
+                $bgcolor={theme.primary}
+                $bgcolorhover={"transparent"}
+                $colorhover={theme.blue}
               />
               <NavButton
                 text={"Streams"}
                 width={"auto"}
                 height={"20%"}
                 color={theme.white}
-                bgcolor={theme.primary}
-                bgcolorhover={"transparent"}
-                colorhover={theme.blue}
+                $bgcolor={theme.primary}
+                $bgcolorhover={"transparent"}
+                $colorhover={theme.blue}
               />
               <NavButton
                 text={"Notícias"}
                 width={"auto"}
                 height={"20%"}
                 color={theme.white}
-                bgcolor={theme.primary}
-                bgcolorhover={"transparent"}
-                colorhover={theme.blue}
+                $bgcolor={theme.primary}
+                $bgcolorhover={"transparent"}
+                $colorhover={theme.blue}
               />
             </Column>
             <Column>
@@ -80,9 +78,9 @@ export default function Footer() {
                 width={"auto"}
                 height={"20%"}
                 color={theme.white}
-                bgcolor={theme.primary}
-                bgcolorhover={"transparent"}
-                colorhover={theme.green}
+                $bgcolor={theme.primary}
+                $bgcolorhover={"transparent"}
+                $colorhover={theme.green}
               />
             </Column>
             <Column>

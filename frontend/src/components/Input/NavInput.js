@@ -14,7 +14,7 @@ export function NavInput({
   readOnly,
   onBlur, 
   onFocus,
-  isFocused,
+  $isFocused,
   valueForm
 }) {
   return (
@@ -31,7 +31,7 @@ export function NavInput({
           readOnly={readOnly}
           onFocus={onFocus} 
           onBlur={onBlur}
-          isFocused={isFocused}
+          $isFocused={$isFocused}
         />
       </FormBox>
     </>
@@ -61,6 +61,6 @@ const InputBox = styled.input`
   &&:focus {
     border: 0 solid;
     box-shadow: 0 0 0 0;
-    outline: ${(props) => props.isFocused ? '2px solid #FF9900' : '0'} ;
+    outline: ${(props) => props.$isFocused ? '2px solid #FF9900' : '0'} ;
   }
 `;

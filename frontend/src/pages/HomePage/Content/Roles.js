@@ -6,7 +6,7 @@ import RolesMap from "./RolesMap";
 export default function Roles() {
   return (
     <>
-      <ContentBox bgcolor={theme.blue}>
+      <ContentBox $bgcolor={theme.blue}>
         <Description>
           <h1>FUNÇÕES</h1>
           <div></div>

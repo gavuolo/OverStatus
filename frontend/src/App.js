@@ -7,6 +7,8 @@ import HomePage from "./pages/HomePage/HomePage";
 import Footer from "./components/Footer/Footer";
 import RolePage from "./pages/RolePage/RolePage";
 import HeroPage from "./pages/HeroPage/HeroPage";
+import reportWebVitals from "./reportWebVitals";
+
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
     </BrowserRouter>
   );
 }
+
+// reportWebVitals(console.log);
 const Content = styled.div`
   /* width: 100vw; */
   /* height: 100vh; */

@@ -19,31 +19,31 @@ export default function NavBar() {
               text="MODO DE JOGO"
               width="auto"
               height="40%"
-              bgcolor={theme.primary}
+              $bgcolor={theme.primary}
             />
             <NavButton
               text="HERÓIS"
               width="auto"
               height="40%"
-              bgcolor={theme.primary}
+              $bgcolor={theme.primary}
             />
             <NavButton
               text="MAPAS"
               width="auto"
               height="40%"
-              bgcolor={theme.primary}
+              $bgcolor={theme.primary}
             />
             <NavButton
               text="JOGADORES"
               width="auto"
               height="40%"
-              bgcolor={theme.primary}
+              $bgcolor={theme.primary}
             />
             <NavButton
               text="GUIAS"
               width="auto"
               height="40%"
-              bgcolor={theme.primary}
+              $bgcolor={theme.primary}
             />
           </ButtonBox>
           <NavInput
@@ -52,7 +52,7 @@ export default function NavBar() {
             width={"auto"}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            isFocused={isFocused}
+            $isFocused={isFocused}
           />
           <LoginBox>
             <NavButton
@@ -60,7 +60,7 @@ export default function NavBar() {
               width={"90%"}
               height={"40%"}
               color={theme.black}
-              bgcolor={theme.orange}
+              $bgcolor={theme.orange}
             />
           </LoginBox>
         </CentralizeBar>

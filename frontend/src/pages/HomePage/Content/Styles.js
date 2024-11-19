@@ -6,7 +6,7 @@ export const ContentBox = styled.div`
   width: 85vw;
   height: 250px;
   /* height: 26vh; */
-  background-color: ${(props) => props.bgcolor};
+  background-color: ${(props) => props.$bgcolor};
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -102,11 +102,12 @@ export const RoleIcon = styled.div`
     border-radius: 2px;
   }
 `;
+
 export const ItemBox = styled.div`
   width: 45%;
   height: 100%;
   background-color: black;
-  background-image: url(${(props) => props.url});
+  background-image: url(${(props) => props.$url});
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,8 +158,8 @@ export const SearchBox = styled.div`
   background-color: ${theme.input};
   border-radius: 4px;
   border: 2px solid
-    ${({ isFocused, isSearchFocused }) =>
-      isFocused || isSearchFocused ? theme.orange : "transparent"};
+    ${({ $isFocused, $isSearchFocused }) =>
+      $isFocused || $isSearchFocused ? theme.orange : "transparent"};
   transition: border-color 0.4s ease;
 `;
 export const WarningBox = styled.div`

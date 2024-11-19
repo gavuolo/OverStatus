@@ -7,14 +7,14 @@ import { NavButton } from "../../../components/Button/NavButton";
 export default function Register() {
   return (
     <>
-      <ItemBox url={tracerimage}>
+      <ItemBox $url={tracerimage}>
         <Strip width={'100%'} height={'80%'}>
           <h1>Comente e ajude quem precisa</h1>
           <NavButton
             text="Registrar"
             width="auto"
             height="20%"
-            bgcolor={theme.orange}
+            $bgcolor={theme.orange}
             color={theme.black}
           />
         </Strip>
