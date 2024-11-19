@@ -5,12 +5,16 @@ import { getHero } from "../../services/overFastApi/heroesService";
 import { useEffect, useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import Summary from "./Content/Summary";
+import Footer from "../../components/Footer/Footer";
+import { Loader } from "../../components/Loader/ThreeDots";
+import { theme } from "../../assets/Colors";
 
 export default function HeroPage() {
   const { keyHero } = useParams();
   const [hero, setHero] = useState(undefined);
   const [story, setStory] = useState(undefined);
   const [abilities, setAbilities] = useState(undefined);
+  const [isLoading, setIsLoading] = useState(true);
 
   async function apiResponse() {
     try {
@@ -18,10 +22,13 @@ export default function HeroPage() {
       setStory(response.story);
       setAbilities(response.abilities);
       setHero(response);
+      setIsLoading(false);
+      
     } catch (error) {
       console.log(error);
       return;
     }
+ 
   }
   useEffect(() => {
     apiResponse();
@@ -30,40 +37,30 @@ export default function HeroPage() {
     <>
       <NavBar />
       <Content>
-        {hero ? (
-          <>
-            <BackGround>
-              <HeroImageBackGround
-                src={hero.abilities[0].video.thumbnail}
-                alt={hero.name}
-              />
-            </BackGround>
-            {/* <Summary hero={hero} /> */}
-            {/* <Skills abilities={abilities}/> */}
-          </>
-        ) : (
-          <ThreeDots
-            height="70%"
-            width="30%"
-            radius="9"
-            color="#EEEEEE"
-            ariaLabel="three-dots-loading"
-            wrapperStyle={{}}
-            wrapperClassName=""
-            visible={true}
-          />
+        <Loader color={theme.blue} visible={isLoading} />
+        {!isLoading && (
+          <BackGround>
+            <HeroImageBackGround
+              src={hero.abilities[0].video.thumbnail}
+              alt={hero.name}
+            />
+          </BackGround>
         )}
       </Content>
+      <Footer />
     </>
   );
 }
 
 const Content = styled.div`
+  width: 100vw;
+  height: 100vh;
+
   margin-top: 80px;
 `;
 const BackGround = styled.div`
   width: 100vw;
-  height: 200px;  
+  height: 200px;
   overflow: hidden;
   /* img{  
     max-width: 100%;
@@ -74,7 +71,7 @@ const BackGround = styled.div`
 `;
 const HeroImageBackGround = styled.img`
   opacity: 0.5;
-  object-fit: cover; 
+  object-fit: cover;
   overflow: visible;
 `;
 // const Apresentation = styled.div`

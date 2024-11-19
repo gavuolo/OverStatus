@@ -22,26 +22,9 @@ export const ButtonBox = styled.div`
   -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45);
 `;
-// export const Content = styled.div`
-//   width: 85vw;
-//   height: auto;
-//   /* min-height: 60vh; */
-//   flex: 1;
-//   padding: 10px 0 30px 0;
-//   margin-bottom: 30px;
-//   background-color: ${theme.blue};
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45);
-//   -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45);
-//   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45);
-// `;
-
 export const Content = styled.div`
   width: 85vw;
   height: auto;
-  /* min-height: 60vh; */
   flex: 1;
   padding: 10px 0 30px 0;
   margin-bottom: 30px;
@@ -49,9 +32,6 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45);
-  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45);
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.45); */
   h3 {
     color: ${theme.black};
   }
@@ -67,19 +47,18 @@ export const DescriptionBox = styled.div`
   text-align: center;
   color: ${theme.white};
   font-size: ${fonts.text};
+
+  svg {
+    color: black;
+  }
 `;
 export const HeroesBox = styled.div`
   width: 85%;
   min-height: 50vh;
-  /* height: auto; */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-flow: row wrap;
-
-  /* &&:last-child {
-    flex-flow: initial;
-  }  */
 `;
 export const HeroCardWrapper = styled.div`
   opacity: 0;
@@ -107,7 +86,6 @@ export const HeroCard = styled.div`
   align-items: center;
   margin: 10px;
   overflow: hidden;
-
   &:hover {
     outline: 2px solid ${theme.white};
   }
@@ -132,19 +110,16 @@ export const HeroName = styled.div`
     width: 20px;
     height: 20px;
     shape-rendering: geometricPrecision;
-
     path {
       fill: ${theme.black};
     }
   }
   h2 {
-    /* margin-right: 15px; */
     margin-left: 0.5rem;
     text-align: center;
     color: ${theme.black};
   }
 `;
-
 export const AllHeroes = styled.div`
   width: 20%;
   height: 90%;

@@ -3,7 +3,7 @@ import { Logo } from "../Logo/Logo";
 import { NavButton } from "../Button/NavButton";
 import { NavInput } from "../Input/NavInput";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import { fonts, theme } from "../../assets/Colors";
+import { fonts, rgbTheme, theme } from "../../assets/Colors";
 import { SocialIcon } from "react-social-icons";
 
 export default function Footer() {
@@ -17,7 +17,18 @@ export default function Footer() {
             <Column>
               <NavButton
                 text={"Heróis"}
-                width={"90%"}
+                width={"auto"}
+                height={"20%"}
+                color={theme.white}
+                bgcolor={theme.primary}
+                bgcolorhover={"transparent"}
+            
+                colorhover={theme.orange}
+             
+              />
+              <NavButton
+                text={"Mapas"}
+                width={"auto"}
                 height={"20%"}
                 color={theme.white}
                 bgcolor={theme.primary}
@@ -25,18 +36,9 @@ export default function Footer() {
                 colorhover={theme.orange}
               />
               <NavButton
-                text={"Mapas"}
-                width={"90%"}
-                height={"1%"}
-                color={theme.white}
-                bgcolor={theme.primary}
-                bgcolorhover={"transparent"}
-                colorhover={theme.orange}
-              />
-              <NavButton
                 text={"Modos de Jogo"}
-                width={"90%"}
-                height={"1%"}
+                width={"auto"}
+                height={"20%"}
                 color={theme.white}
                 bgcolor={theme.primary}
                 bgcolorhover={"transparent"}
@@ -46,8 +48,8 @@ export default function Footer() {
             <Column>
               <NavButton
                 text={"Guias"}
-                width={"90%"}
-                height={"1%"}
+                width={"auto"}
+                height={"20%"}
                 color={theme.white}
                 bgcolor={theme.primary}
                 bgcolorhover={"transparent"}
@@ -55,8 +57,8 @@ export default function Footer() {
               />
               <NavButton
                 text={"Streams"}
-                width={"90%"}
-                height={"1%"}
+                width={"auto"}
+                height={"20%"}
                 color={theme.white}
                 bgcolor={theme.primary}
                 bgcolorhover={"transparent"}
@@ -64,8 +66,8 @@ export default function Footer() {
               />
               <NavButton
                 text={"Notícias"}
-                width={"90%"}
-                height={"1%"}
+                width={"auto"}
+                height={"20%"}
                 color={theme.white}
                 bgcolor={theme.primary}
                 bgcolorhover={"transparent"}
@@ -75,8 +77,8 @@ export default function Footer() {
             <Column>
               <NavButton
                 text={"Fale conosco"}
-                width={"90%"}
-                height={"1%"}
+                width={"auto"}
+                height={"20%"}
                 color={theme.white}
                 bgcolor={theme.primary}
                 bgcolorhover={"transparent"}
@@ -170,19 +172,27 @@ const Column = styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
 `;
 
 const SocialMedia = styled.div`
+width: 100%;
   display: flex;
   justify-content: space-evenly;
-
   margin-top: 4%;
+  overflow: visible;
   svg {
-    border-radius: 0 !important;
+  
+    /* border-radius: 20% !important; */
+    
   }
   svg:hover {
-    border: 3px solid ${theme.primary};
+  
+    border: 2px solid ${theme.primary};
+    /* border-radius: 50% !important; */
+   
+    
   }
 `;
 

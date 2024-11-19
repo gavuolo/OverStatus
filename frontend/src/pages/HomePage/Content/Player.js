@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import { NavInput } from "../../../components/Input/NavInput";
-import { ContentBox, Description } from "./Styles";
+import { ContentBox, Description, IconSearch, PlayerBox, SearchBox, WarningBox } from "./Styles";
 import { IoSearchSharp } from "react-icons/io5";
 import { theme, fonts } from "../../../assets/Colors";
 import { useState } from "react";
+import useForm from "../../../hooks/useForm";
 
 export default function Players() {
   const [isFocused, setIsFocused] = useState(false);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [playerId, setPlayerId] = useState({})
+  console.log(playerId.value)
   return (
     <>
       <ContentBox bgcolor={theme.primary} color={theme.white}>
@@ -26,6 +29,7 @@ export default function Players() {
               width={"100%"}
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
+              onChange={setPlayerId}
             />
             <IconSearch
               isFocused={isFocused}
@@ -40,53 +44,3 @@ export default function Players() {
     </>
   );
 }
-
-const IconSearch = styled.div`
-  width: 8%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  svg {
-    font-size: 280%;
-    color: ${theme.gray};
-    cursor: pointer;
-  }
-  &&:hover {
-    transition: background-color 0.4s ease;
-    background-color: ${theme.orange};
-    border-radius: 10px;
-    svg {
-      color: ${theme.black};
-      transition: color 0.4s ease;
-    }
-  }
-`;
-const SearchBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 60%;
-  height: 60%;
-  background-color: ${theme.input};
-  border-radius: 10px;
-  border: 2px solid
-    ${({ isFocused, isSearchFocused }) =>
-      isFocused || isSearchFocused ? theme.orange : "transparent"};
-  transition: border-color 0.4s ease;
-`;
-const WarningBox = styled.div`
-  width: 30%;
-  height: auto;
-
-  h3 {
-    font-size: ${fonts.footnote};
-    color: ${theme.white};
-    margin-bottom: 1%;
-  }
-`;
-const PlayerBox = styled.div`
-  width: 60%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-`;

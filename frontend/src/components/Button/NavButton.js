@@ -12,7 +12,8 @@ export function NavButton({
   bgcolor,
   color,
   bgcolorhover,
-  colorhover
+  colorhover,
+  bordercolor
 }) {
   return (
     <>
@@ -26,6 +27,7 @@ export function NavButton({
         color={color}
         bgcolorhover={bgcolorhover}
         colorhover={colorhover}
+        bordercolor={bordercolor}
       >
         <h1>{text}</h1>
       </ButtonBox>
@@ -53,6 +55,7 @@ const ButtonBox = styled.div`
   }
   &&:hover {
     background-color: ${(props) => props.bgcolorhover ? `${props.bgcolorhover}` : `${theme.gray}`};
+    outline: ${(props) => props.bordercolor ? `${props.bordercolor}`: `${props.bordercolor}`};
     color: ${theme.black};
     h1{
       color: ${(props) => props.colorhover ? `${props.colorhover}` : `${theme.black}`};

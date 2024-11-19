@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { fonts, rgbTheme, theme } from "../../assets/Colors";
 import axios from "axios";
 import { ReactSVG } from "react-svg";
-import UserContext from "../../context/useContext";
 
 export function RoleButton({
   text,

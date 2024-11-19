@@ -12,12 +12,10 @@ import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { getRoles } from "../../services/overFastApi/rolesService";
 import Footer from "../../components/Footer/Footer";
-import UserContext from "../../context/useContext";
-import { ButtonsMap, RolesMap } from "./Content/ButtonsMap";
+import { ButtonsMap } from "./Content/ButtonsMap";
 import { HeroesMap } from "./Content/HeroesMap";
 import { Loader } from "../../components/Loader/ThreeDots";
 import { theme } from "../../assets/Colors";
-import styled from "styled-components";
 
 export default function RolePage() {
   const [rolesButton, setRolesButton] = useState(undefined);
@@ -31,7 +29,7 @@ export default function RolePage() {
     try {
       const response = await getHeroes(idRole);
       const roleResponse = await getRoles();
-      
+
       const description = roleResponse.find(
         (item) => item.key === idRole
       )?.description;
@@ -48,7 +46,6 @@ export default function RolePage() {
     apiResponse();
     setIsLoading(true);
   }, [location.key]);
-
   return (
     <>
       <NavBar />
@@ -56,7 +53,7 @@ export default function RolePage() {
         <ButtonBox>
           <ButtonsMap rolesButton={rolesButton} />
           <AllHeroes>
-          <h1>Todos</h1>
+            <h1>Todos</h1>
           </AllHeroes>
         </ButtonBox>
       </TopBox>
@@ -77,5 +74,3 @@ export default function RolePage() {
     </>
   );
 }
-
-

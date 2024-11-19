@@ -1,15 +1,6 @@
-import { CentralizeDots } from "./Styles";
-import { useContext, useEffect, useState } from "react";
-import { ThreeDots } from "react-loader-spinner";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { RoleButton } from "../../../components/Button/RoleButton";
-import { icons } from "react-icons/lib";
-import UserContext from "../../../context/useContext";
 import { rgbTheme, theme } from "../../../assets/Colors";
-import { Loader } from "../../../components/Loader/ThreeDots";
-import { getRoles } from "../../../services/overFastApi/rolesService";
-
-
 
 export function ButtonsMap({ rolesButton }) {
   const navigate = useNavigate();

@@ -14,7 +14,8 @@ export function NavInput({
   readOnly,
   onBlur, 
   onFocus,
-  isFocused
+  isFocused,
+  valueForm
 }) {
   return (
     <>
@@ -24,7 +25,7 @@ export function NavInput({
           placeholder={placeholder}
           type={type}
           name={name}
-          value={value}
+          valueForm={valueForm}
           onChange={onChange}
           required={required}
           readOnly={readOnly}

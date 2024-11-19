@@ -12,6 +12,7 @@ export const theme = {
 export const rgbTheme = { 
     skyBlue: '2, 219, 255',
     green: '51,204,51',
+    orange: '255, 153, 0',
 
 }
 
