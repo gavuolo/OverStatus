@@ -7,7 +7,6 @@ import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsersService {
-    
   constructor(private readonly userRepository: UsersRepository ) {
   }
 
@@ -20,7 +19,6 @@ export class UsersService {
       ...body,
       password: passwordHashed,
     });
- 
     return user;
   }
 }
